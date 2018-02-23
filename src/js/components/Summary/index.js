@@ -1,3 +1,3 @@
-import SummaryEntries from './SummaryEntries';
+import Summary from './Summary';
 
-export default SummaryEntries;
+export default Summary;
