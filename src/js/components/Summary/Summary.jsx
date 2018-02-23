@@ -6,23 +6,25 @@ function calculateSum(lineItems) {
 
 function formatCurrency(amount) {
   if (amount >= 0) {
-    const dollars = Math.floor(amount);
+    return amount >= 0 ? `$${amount.toFixed(2)}` : `-$${Math.abs(amount.toFixed(2))}`;
+
+ /*    const dollars = Math.floor(amount);
     const cents = Math.floor((amount - dollars) * 100).toString().padEnd(2, '0');
     return `$${dollars.toLocaleString()}.${cents}`;
   }
 
   const dollars = Math.ceil(amount);
   const cents = Math.floor((amount - dollars) * 100 * -1).toString().padEnd(2, '0');
-  return `-$${(dollars * -1).toLocaleString()}.${cents}`;
-}
+  return `-$${(dollars * -1).toLocaleString()}.${cents}`; */
+}}
 
 class Summary extends React.Component {
   render() {
     const { incomeItems, expenseItems } = this.props;
 
-    const incomeTotal = calculateSum(incomeItems) / 100;
-    const expenseTotal = calculateSum(expenseItems) / 100;
-    const difference = Math.round(incomeTotal - expenseTotal) / 100;
+    const incomeTotal = calculateSum(incomeItems) /* / 100 */;
+    const expenseTotal = calculateSum(expenseItems)/*  / 100 */;
+    const difference = incomeTotal - expenseTotal/*  / 100 */;
 
     return (
       <div className='card border-info mb-3'>
